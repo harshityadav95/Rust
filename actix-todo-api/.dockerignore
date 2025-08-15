@@ -1,0 +1,27 @@
+# Build artifacts
+target
+**/target
+
+# VCS
+.git
+.gitignore
+
+# IDE/editor
+.vscode
+.idea
+*.swp
+*.swo
+
+# Local env and data
+.env
+data/
+*.db
+
+# Tests and coverage outputs
+coverage
+llvm-profdata
+llvm-cov
+
+# Misc
+Dockerfile~
+Cargo.lock~

@@ -1,0 +1,39 @@
+[package]
+name = "actix-todo-api"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Todo CRUD REST API with Actix Web, SQLite (sqlx), and OpenAPI (utoipa)."
+repository = "https://example.com/actix-todo-api"
+
+[dependencies]
+actix-web = "4.8"
+actix-cors = "0.7"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+utoipa = { version = "4.2", features = ["derive", "time"] }
+utoipa-swagger-ui = { version = "7", features = ["actix-web"] }
+sqlx = { version = "0.7", features = ["runtime-tokio-rustls", "sqlite", "macros", "time", "uuid", "json"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
+dotenvy = "0.15"
+thiserror = "1.0"
+time = { version = "0.3", features = ["serde", "formatting", "parsing", "macros"] }
+libsqlite3-sys = { version = "0.28", features = ["bundled"] }
+anyhow = "1.0"
+async-trait = "0.1"
+
+[dev-dependencies]
+actix-rt = "2.9"
+actix-web = { version = "4.8", features = ["macros"] }
+serde_json = "1.0"
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+
+[profile.dev]
+debug = true
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = "symbols"
