@@ -1,2 +1,0 @@
-# Rust
-Everything Rust
